@@ -78,8 +78,8 @@ static boolean cierreTope=false;
         //Evaluando nueva forma de entregar mensajes en forma de metodo mas ordenada, mientras tanto.
         topeTrabajo=tiempo_usuario();
         
-        topeDescanso=(tiempo_descanso(topeTrabajo)/60);
-        comienzo_actividad(); 
+        topeDescanso=(tiempoDescanso(topeTrabajo)/60);
+        comienzoActividad(); 
         System.out.println("Ahora el programa comenzará a contar hasta que pasen las horas que usted decidió.");
         System.out.println("Una vez esto ocurra, comenzará a contar otra vez, para medir su descanso entre periodos de trabajo.");
         while(contadorTope<topeTotal)
@@ -219,7 +219,7 @@ static boolean cierreTope=false;
             //la imagen podria guardar datos en el arraylist que instancie arriba, para que sea mas facil obtener los topes luego(usando el arraylist.size y todo eso)
         }
         
-        private static double tiempo_usuario()
+        private static double tiempoUsuario()
         {
         //la idea es que el usuario defina cada cuanto tiempo quiere un descanso dependiendo de la actividad que realiza
         //obviamente con un mínimo para que descanse al menos 2 veces al día
@@ -228,15 +228,15 @@ static boolean cierreTope=false;
             System.out.println(("Debe ingresar un máximo de 4 horas, si no es preciso puede ingresar un decimal"));
             System.out.println("por ejemplo: si son 2 horas y media ingrese 2.5");
             System.out.println("Se ruega ingresar un tiempo valido, con un tope de 4 horas, y un minimo de 1");
-            double tiempo_usu=0;
-            while(validarDouble(tiempo_usu,1,4))
+            double tiempoUsu=0;
+            while(validarDouble(tiempoUsu,1,4))
             {
-             tiempo_usu=entrada.nextDouble();
+             tiempoUsu=entrada.nextDouble();
             }//validar el ingreso
-            return tiempo_usu;
+            return tiempoUsu;
         }
 
-        private static double tiempo_descanso(double topeTrabajo)
+        private static double tiempoDescanso(double topeTrabajo)
         {
             if (topeTrabajo<2.5) 
             {
@@ -255,7 +255,7 @@ static boolean cierreTope=false;
             }
         }
         
-        private  static void comienzo_actividad()
+        private  static void comienzoActividad()
         {
         // se debe preguntar a que hora comienza su actividad laboral o lo que realice para que sea acorde a sus tiempos
         // A esto le haria una pequeña adaptacion, mas que preguntar a que hora inicia su actividad(recordar que el reloj no fuunciona con calendar)
@@ -271,13 +271,13 @@ static boolean cierreTope=false;
             System.out.println("Por favor ingrese la cantidad de horas de trabajo maximas durante la jornada de hoy");
             System.out.println("Considerando un minimo de 4 y un maximo de 10");
             System.out.println("Se permite ingreso de decimales, como 5.5 horas, 4.25 horas, etc.");
-            double total_act=0;
-            while(validarDouble(total_act,4,10))
+            double totalAct=0;
+            while(validarDouble(totalAct,4,10))
             {
-                total_act=entrada.nextDouble();
+                totalAct=entrada.nextDouble();
             }
-            double pDecimal=total_act-(int)total_act;
-            setTopeTotal((int)total_act*60+(int)(pDecimal*60));
+            double pDecimal=totalAct-(int)totalAct;
+            setTopeTotal((int)totalAct*60+(int)(pDecimal*60));
         }
 
         private static boolean validarDouble(double numero,double topeBajo, double topeAlto)

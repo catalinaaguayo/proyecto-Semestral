@@ -79,6 +79,7 @@ static boolean cierreTope=false;
         topeTrabajo=tiempo_usuario();
         
         topeDescanso=(tiempoDescanso(topeTrabajo)/60);
+        seleccionActividades();
         comienzoActividad(); 
         System.out.println("Ahora el programa comenzará a contar hasta que pasen las horas que usted decidió.");
         System.out.println("Una vez esto ocurra, comenzará a contar otra vez, para medir su descanso entre periodos de trabajo.");
